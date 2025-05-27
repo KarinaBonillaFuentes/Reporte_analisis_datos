@@ -1,0 +1,117 @@
+---
+title: "Proyecto Final"
+author: "Karina Bonilla Fuentes"
+date: "2025-05-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+## R Markdown
+## Cargar Paquetes Necesarios
+
+
+```{r packages}
+# install.packages(c("ggplot2", "dplyr", "tidyr","tibble"))
+
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(tibble)
+```
+
+## Obtener datos
+## 1-	Cargar un dataset
+
+```{r menores_viajan}
+data <- read.csv("menores_viajan.csv")
+head(data)
+str(data)
+summary(data)
+colSums(is.na(data))#--VER SI HAY DATOS FALTANTEs
+datos_limpios <- na.omit(data)#--quitar vacios
+colSums(is.na(datos_limpios))#--VER SI HAY DATOS FALTANTEs
+```
+## 2-	Calcular medidas de tendencia central
+##(media, mediana) y dispersión (desviación estándar).
+##uso de filtros
+
+``` {r data}
+media <- mean(data$Menores_que_viajan, na.rm= TRUE)
+mediana <-median(data$Menores_que_viajan, na.rm= TRUE)
+desviacion <-sd(data$Menores_que_viajan, na.rm= TRUE)
+datos_limpios %>% filter(formato == 'notarial')
+datos_limpios %>% filter(anio_mes == '2018-03')
+datos_limpios %>% filter(Menores_que_viajan>1000)
+```
+
+## Including Plots
+```{r grafico_dispersion}
+ggplot(datos_limpios, aes(x = formato, y = Menores_que_viajan, color = formato)) +
+  geom_point(size = 4) +
+  labs(title = "Relación entre tipo de formato con el que viajan los menores",
+       x = "formato",
+       y = "numero de menores que viajan") +
+  theme_minimal()
+```
+
+##grafico de caja
+```{r grafico_caja}
+ggplot(datos_limpios, aes(x = formato, y = Menores_que_viajan, color = formato)) +
+  geom_boxplot() +
+  labs(title = "Relación entre tipo de formato con el que viajan los menores",
+       x = "formato",
+       y = "numero de menores que viajan") +
+  theme_minimal()
+```
+
+## Gráfico de barras
+```{r grafico_barras}
+ggplot(datos_limpios, aes(x = formato, fill = Menores_que_viajan)) +
+  geom_bar() +
+  labs(title = "Formatos para viajar",
+       x = "Formatos",
+       y = "Menores que viajan") +
+  theme_minimal()
+```
+
+## Gráfico de dispersión 
+```{r grafico_dispersion_2}
+ggplot(datos_limpios, aes(x = formato, y = Menores_que_viajan, color = formato)) +
+  geom_point(size = 3, alpha = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, color = "black", linetype = "dashed") +
+  labs(
+    title = "Relación entre tipo de formato y Menores que viajan",
+    x = "Formato",
+    y = "Menores que viajan",
+    color = "formato"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    legend.position = "bottom"
+  )
+```
+#grafico de burbujas
+```{r grafico_burbujas}
+ggplot(datos_limpios, aes(x = formato, y = Menores_que_viajan, size =Menores_que_viajan, color = formato)) +
+  geom_point(alpha = 0.7) +
+  labs(
+    title = "Relación entre tipo de formato y Menores que viajan",
+    x = "Formato",
+    y = "Menores que viajan",
+    size = "Menores que viajan",
+    color = "formato"
+  ) +
+  theme_classic(base_size = 14) +
+  theme(
+    legend.position = "top",
+    plot.title = element_text(hjust = 0.5, face = "bold")
+  )
+```
+
+---
+
+***fin de informe***
