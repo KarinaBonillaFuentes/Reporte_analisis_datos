@@ -112,6 +112,32 @@ ggplot(datos_limpios, aes(x = formato, y = Menores_que_viajan, size =Menores_que
   )
 ```
 
----
+
+## ***CONCLUSIONES***
+
+***Hallazgos***
+En este reporte se encuentra el Registro de menores de edad que viajan al extranjero, solos o en compañía de un tercero: SAM, Notarial, Autoridad judicial entre el 2018 y 2025, siendo el formato SAM el mas usado para dicho tramite, y el de Autoridad judicial el menos usado teniendo datos nulos en varios conteos mensuales. 
+
+¿Porque es el formato SAM el más utilizado?
+Desde el año 2014, el Formato SAM (Formato de Salida de Menores) del Instituto Nacional  de Migración (INM) es un documento utilizado como medida de facilitación y protección para evitar que las niñas, niños y adolescentes que viajan solos o con un tercero mayor de edad al extranjero, sean extraídos ilegalmente del país.
+
+El Formato SAM es una alternativa al poder notarial y al documento emitido por la autoridad judicial. A diferencia de estas dos opciones válidas y vigentes, los padres o tutores pueden iniciar la solicitud de manera gratuita a través de la página del INM, las 24 horas de los 365 días del año.
+
+Aunque es un trámite con poca vigencia la facilidad y grautidad para emitirlo provoca que sea el mas usado para los viajes de menores.
+
+La desviacion estandar del numero de menores que viajan por tipo de formato es de 2185.
+
+No se tienen registros del primer trimestre del año 2019.
+
+***Reflexión***
+Fue fácil encontrar un dataset con el cual trabajar, internet te proporciona miles de fuentes en distintos formatos para poder trabajar, cada milisegundo se genera un mundo de información, y en esta era tecnológica tener acceso a la información es un derecho de todo ser humas.
+
+Pero, ¿qué haces con esa información? y en es esta pregunta entran todas las ciencias de datos, las herramientas y los conocimientos para una digestión de datos interpretación y conclusiones.
+
+EL análisis de datos no debe ser de unos cuantos, de un sector tecnológico, en cualquier momento y rubro podemos hacer análisis, desde que bus me conviene para una trayectoria revisando tiempos, costos, trayectorias, hasta que empresa es mejor para hacer una inversión teniendo en cuenta intereses, riesgos, inflación, etc.
+
+No hay pretexto para no hacer un analisis de datos!!!
+
+Enlace al proyecto en GitHub <https://github.com/KarinaBonillaFuentes/Reporte_analisis_datos>
 
 ***fin de informe***
